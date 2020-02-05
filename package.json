@@ -5,7 +5,9 @@
   "main": "dist/server.js",
   "scripts": {
     "build-ts": "tsc",
-    "start": "npm run serve",
+    "client": "cd client && npm start",
+    "start": "npm run serve && npm run client",
+    "dev": "concurrently \"npm run serve\" \"npm run client\"",
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w"
@@ -14,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2",
     "tslint": "^6.0.0",
     "typescript": "^3.7.5"
